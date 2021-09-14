@@ -7,6 +7,8 @@
       flex-wrap: nowrap;
     }
   </style>
+
+  {% if entry.publication %}
   <div class="col-sm-3 abbr">
     {% if entry.abbr %}
     {% if site.data.venues[entry.abbr] %}
@@ -19,7 +21,9 @@
     <img class="img-fluid z-depth-1 rounded" src="{{ entry.image | prepend: '/assets/img/' | relative_url }}">
     {% endif %}
   </div>
-  <div id="{{entry.key}}" class="col-sm-9">
+  {% endif %}
+
+  <div id="{{entry.key}}" class="{% if entry.publication %}col-sm-9{% else %}col-sm-12 {% endif %}">
     {% if entry.type == "thesis" %}
     {{reference}}
     {% else %}
@@ -51,12 +55,12 @@
       {% else %}
       {% unless forloop.last %}
       {% if author_is_self %}
-      <em>{{author.last}}, {{author.first}}</em>,
+      <em>{{author.last}}, {{author.first}}</em>{% if forloop.length >2 %},{% endif %}
       {% else %}
       {% if coauthor_url %}
       <a href="{{coauthor_url}}" target="_blank">{{author.last}}, {{author.first}}</a>,
       {% else %}
-      {{author.last}}, {{author.first}},
+      {{author.last}}, {{author.first}}{% if forloop.length >2 %},{% endif %}
       {% endif %}
       {% endif %}
       {% else %}
@@ -87,7 +91,9 @@
       [IF: {{entry.impact}}]
       {% endif %}
       {% if entry.award %}
-      ({{entry.award}})
+      <br>
+      🏆 <strong>{{entry.award}}</strong>
+<!--      <b>({{entry.award}})</b>-->
       {% endif %}
 <!--      {% if entry.proceedings %}-->
 <!--        (presented in {{entry.proceedings}}-->
@@ -177,3 +183,4 @@
     {% endif %}
   </div>
 </div>
+
