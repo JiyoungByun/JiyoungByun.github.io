@@ -1,3 +1,3 @@
-## Young-Jin Park
+## Jiyoung Byun
 
-https://young-j-park.github.io
+https://jiyoungbyun.github.io
