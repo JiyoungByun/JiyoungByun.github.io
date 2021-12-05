@@ -1,12 +1,14 @@
 ---
 layout: page
-title: etc.
+title: My Siblings ❤️
 permalink: /etc/
-description: A growing collection of your cool projects.
+description: 
 nav: true
-display_categories: [KKamsoon, work, fun]
+display_categories: [KKamsoon, Meong]
 horizontal: false
+order: 1
 ---
+
 <div class="projects">
   {% if site.enable_project_categories and page.display_categories %}
   <!-- Display categorized projects -->
@@ -24,11 +26,19 @@ horizontal: false
           </div>
         </div>
       {% else %}
-        <div class="grid">
-          {% for project in sorted_projects %}
-            {% include projects.html %}
-          {% endfor %}
-        </div>
+        {% if category == "KKamsoon" %}
+            <div class="kkam_grid">
+              {% for project in sorted_projects %}
+                {% include projects.html %}
+              {% endfor %}
+            </div>
+        {% else %}
+            <div class="meong_grid">
+              {% for project in sorted_projects %}
+                {% include projects.html %}
+              {% endfor %}
+            </div>
+        {% endif %}
       {% endif %}
     {% endfor %}
 

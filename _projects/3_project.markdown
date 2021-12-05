@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Kkamsoon
-description: a project that redirects to another website
+title: 청
+description: 
 img: /assets/img/Kkam3.jpeg
-importance: 3
-category: Kkamsoon
+importance: 1
+category: KKamsoon
 ---

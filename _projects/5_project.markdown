@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Meong
-description: a project with a background image
-img: /assets/img/Meong2.jpeg
-importance: 5
-category: Kkamsoon
+description: 
+img: /assets/img/Meong2.JPG
+importance: 1
+category: Meong
 ---

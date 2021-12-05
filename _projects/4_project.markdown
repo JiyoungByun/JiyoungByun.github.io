@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Meong
-description: another without an image
-img: /assets/img/Kkam3.jpeg
-importance: 4
-category: Kkamsoon
+description:
+img: /assets/img/Meong1.JPG
+importance: 2
+category: Meong
 ---
