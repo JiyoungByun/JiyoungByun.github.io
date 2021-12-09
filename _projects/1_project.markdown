@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 
+title:  
 description: Walking in the park
 img: /assets/img/Kkam1.jpg
 importance: 1
