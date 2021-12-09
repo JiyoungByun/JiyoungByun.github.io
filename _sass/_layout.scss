@@ -45,14 +45,15 @@
 
 // TODO: redefine projects layout.
 
-.kkam_grid {
-  display: grid;
-  grid-template-columns: 24% 24% 42.5%;
-  gap: 10px
-}
-
-.meong_grid {
-  display: grid;
-  grid-template-columns: 35% 58.2%;
-  gap: 10px
+@media (min-width: 500px) {
+  .kkam_grid {
+    display: grid;
+    grid-template-columns: 24% 24% 42.5%;
+    gap: 10px
+  }
+  .meong_grid {
+    display: grid;
+    grid-template-columns: 35% 58.2%;
+    gap: 10px
+  }
 }
