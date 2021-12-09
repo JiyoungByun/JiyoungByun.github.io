@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: Jiyoung
+first_name: Ji Young
 middle_name:
 last_name: Byun
 email: jy030814@gmail.com
@@ -50,10 +50,10 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 
 github_username: # your GitHub user name
 gitlab_username: # your GitLab user name
-twitter_username: # your Twitter handle
+twitter_username: Jiyoung.B # your Twitter handle
 linkedin_username: jiyoung-byun-9b6381170 # your LinkedIn user name
-scholar_userid: # your Google Scholar ID
-orcid_id: 0000-0003-3711-2439 # your ORCID ID
+scholar_userid: SvOu4fUAAAAJ # your Google Scholar ID
+orcid_id:  # your ORCID ID
 medium_username: # your Medium username
 quora_username: # your Quora username
 publons_id: # your ID on Publons
