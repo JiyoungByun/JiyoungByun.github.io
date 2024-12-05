@@ -12,7 +12,7 @@ news: false  # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-I'm a Ph.D. candidate in <a href="aiem.jhu.edu/">Artificial Intelligence for Engineering and Medicine Lab at 
+I'm a Ph.D. candidate in <a href="aiem.jhu.edu/">Artificial Intelligence for Engineering and Medicine Lab</a> at 
 <a href="https://www.bme.jhu.edu/">Department of Biomedical Engineering, Johns Hopkins University</a>.
 My research interests broadly include <strong>machine learning</strong> and its applications to <strong>healthcare</strong>.
 
