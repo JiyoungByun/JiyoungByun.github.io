@@ -6,20 +6,15 @@ import PubList from "@/components/PubList.astro";
 import { publications } from "@/data/publications";
 ---
 
-<Layout title="Research">
+<Layout title="Publications">
   <Header />
   <main id="main-content" class="app-layout my-1">
     <section class="pt-8 pb-6">
       <h1
         class="font-display text-foreground m-0 text-3xl font-bold tracking-tight sm:text-4xl"
       >
-        Research
+        Publications
       </h1>
-      <p class="text-muted-foreground mt-3 mb-0 max-w-prose">
-        My thesis is on trustworthy biomedical reasoning with large language and
-        vision-language models: knowing when a model should be believed, and
-        making it cheap enough to run. Full list below, newest first.
-      </p>
       <div class="mt-8">
         <PubList items={publications} />
       </div>

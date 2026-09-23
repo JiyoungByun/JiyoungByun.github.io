@@ -15,6 +15,13 @@ const statusLabel: Record<Publication["status"], string | null> = {
   "under-review": "under review",
   submitted: "submitted",
 };
+
+/**
+ * Matches her name in an author string so it can be emphasised.
+ * Kept as a capturing group so `split` returns the delimiters too.
+ * Tolerates the trailing "*" used for shared first authorship.
+ */
+const SELF = /(Byun,\s*J\.\s*Y\.)/g;
 ---
 
 <ol class="not-prose m-0 list-none p-0">
@@ -28,19 +35,20 @@ const statusLabel: Record<Publication["status"], string | null> = {
           <div>
             <h3 class="text-foreground m-0 text-base leading-snug font-semibold">
               {pub.title}
-              {pub.equalContribution && (
-                <span
-                  class="text-muted-foreground font-normal"
-                  title="Equal contribution"
-                >
-                  {" "}
-                  *
-                </span>
-              )}
             </h3>
             {!compact && (
               <p class="text-muted-foreground mt-1 mb-0 text-sm">
-                {pub.authors}
+                {pub.authors
+                  .split(SELF)
+                  .map(part =>
+                    /^Byun,\s*J\.\s*Y\.$/.test(part) ? (
+                      <strong class="text-foreground font-semibold underline underline-offset-2">
+                        {part}
+                      </strong>
+                    ) : (
+                      part
+                    )
+                  )}
               </p>
             )}
             <div class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -70,10 +78,3 @@ const statusLabel: Record<Publication["status"], string | null> = {
     ))
   }
 </ol>
-{
-  items.some(p => p.equalContribution) && (
-    <p class="text-muted-foreground mt-3 mb-0 font-mono text-xs">
-      * equal contribution
-    </p>
-  )
-}

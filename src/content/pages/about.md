@@ -43,5 +43,5 @@ I was a teaching assistant for *Deep Learning for Medical Imaging* at Hopkins, r
 PyTorch sessions for 20+ graduate students, and I mentor BME students on token reduction for
 vision transformers and on segmentation for real-world ophthalmology images.
 
-Publications are on the [research page](/research/), and my CV is
+Publications are on the [publications page](/publications/), and my CV is
 [here](/JiYoungByun-CV.pdf). Links to email, GitHub, Scholar and LinkedIn are in the footer.

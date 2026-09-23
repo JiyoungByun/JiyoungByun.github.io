@@ -8,7 +8,7 @@ import IconSearch from "@/assets/icons/IconSearch.svg";
 import IconMoon from "@/assets/icons/IconMoon.svg";
 import IconX from "@/assets/icons/IconX.svg";
 import LinkButton from "./LinkButton.astro";
-import { stripBase, stripLocale } from "@/utils/withBase";
+import { getAssetPath, stripBase, stripLocale } from "@/utils/withBase";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
 
@@ -76,6 +76,14 @@ const isActive = (path: string) => {
       >
         <li class="col-span-2">
           <a
+            href={getRelativeLocaleUrl(locale, "publications")}
+            class:list={{ "active-nav": isActive("/publications") }}
+          >
+            {t.nav.publications}
+          </a>
+        </li>
+        <li class="col-span-2">
+          <a
             href={getRelativeLocaleUrl(locale, "posts")}
             class:list={{ "active-nav": isActive("/posts") }}
           >
@@ -83,19 +91,8 @@ const isActive = (path: string) => {
           </a>
         </li>
         <li class="col-span-2">
-          <a
-            href={getRelativeLocaleUrl(locale, "tags")}
-            class:list={{ "active-nav": isActive("/tags") }}
-          >
-            {t.nav.tags}
-          </a>
-        </li>
-        <li class="col-span-2">
-          <a
-            href={getRelativeLocaleUrl(locale, "about")}
-            class:list={{ "active-nav": isActive("/about") }}
-          >
-            {t.nav.about}
+          <a href={getAssetPath("JiYoungByun-CV.pdf")} target="_blank" rel="noopener">
+            {t.nav.cv}
           </a>
         </li>
         {

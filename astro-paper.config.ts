@@ -30,7 +30,8 @@ export default defineAstroPaperConfig({
   features: {
     lightAndDarkMode: true,
     dynamicOgImage: true,
-    showArchives: true,
+    // Archives tab removed from the nav.
+    showArchives: false,
     showBackButton: true,
     // No "edit this page" link — this is a personal site, not a docs project.
     editPost: { enabled: false },

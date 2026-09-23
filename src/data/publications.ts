@@ -55,8 +55,14 @@ export const publications: Publication[] = [
     authors: "Byun, J. Y., Park, Y. J., Azizan, N., & Chellappa, R.",
     venue: "MIDL 2026",
     year: 2026,
-    status: "accepted",
+    status: "published",
     selected: true,
+    links: [
+      {
+        label: "proceedings",
+        url: "https://proceedings.mlr.press/v315/byun26a.html",
+      },
+    ],
   },
   {
     title:
@@ -65,9 +71,15 @@ export const publications: Publication[] = [
       "Byun, J. Y.*, Lee, H. S.*, Shuff, J. M., Venkatesh, R., Shekhawat, N. S., Parikh, K. S., & Chellappa, R.",
     venue: "MIDL 2026",
     year: 2026,
-    status: "accepted",
+    status: "published",
     selected: true,
     equalContribution: true,
+    links: [
+      {
+        label: "proceedings",
+        url: "https://proceedings.mlr.press/v315/byun26b.html",
+      },
+    ],
   },
   {
     // TODO(jy): confirm the author list — the resume lists this under research
