@@ -56,26 +56,21 @@ const homePath = getRelativeLocaleUrl(locale, "");
             Rama Chellappa. Graduating December 2026 and looking for industry research
             roles.
           </p>
-          <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+          <div class="mt-5 flex items-center">
             <Socials />
-            <LinkButton
-              class="text-accent text-sm"
-              href={getRelativeLocaleUrl(locale, "about")}
-            >
-              More about me &rarr;
-            </LinkButton>
           </div>
         </div>
-        {/* Wrapper stretches to the text column's height, so the photo's top and
-            bottom edges line up with the block beside it instead of floating. */}
-        <div class="shrink-0 max-sm:w-28 sm:w-36 sm:self-stretch">
+        {/* The source photo is 354x472 — exactly 3:4 — so the box keeps that ratio
+            and object-cover crops nothing. At 176px wide it stands ~235px tall,
+            which tracks the height of the text block beside it. */}
+        <div class="shrink-0 max-sm:w-28 sm:w-44">
           <Image
             src={profile}
             alt="Ji Young Byun"
-            width={288}
-            height={360}
+            width={352}
+            height={470}
             loading="eager"
-            class="border-border w-full rounded-md border object-cover object-top max-sm:aspect-square sm:h-full"
+            class="border-border w-full rounded-md border object-cover object-top max-sm:aspect-square sm:aspect-[3/4]"
           />
         </div>
       </div>
