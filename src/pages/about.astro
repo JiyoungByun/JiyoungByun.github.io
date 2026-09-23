@@ -125,9 +125,14 @@ const { Content } = await render(about);
                 {d.field}
               </p>
               <p class="text-accent mt-0.5 mb-0 font-mono text-xs">{d.org}</p>
-              {d.detail && (
+              {d.advisor && (
                 <p class="text-muted-foreground mt-2 mb-0 text-xs leading-relaxed">
-                  {d.detail}
+                  Advisor: {d.advisor}
+                </p>
+              )}
+              {d.thesis && (
+                <p class="text-muted-foreground mt-1 mb-0 text-xs leading-relaxed">
+                  Thesis: {d.thesis}
                 </p>
               )}
             </div>

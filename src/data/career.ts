@@ -20,8 +20,8 @@ export interface Degree {
   degree: string;
   field: string;
   org: string;
-  /** Advisor and thesis, where there is one. */
-  detail?: string;
+  advisor?: string;
+  thesis?: string;
 }
 
 export const roles: Role[] = [
@@ -73,16 +73,17 @@ export const degrees: Degree[] = [
     degree: "Ph.D.",
     field: "Biomedical Engineering",
     org: "Johns Hopkins University",
-    detail:
-      "Advised by Rama Chellappa. Thesis: Trustworthy Biomedical Reasoning with Large Language and Vision-Language Models.",
+    advisor: "Rama Chellappa",
+    thesis:
+      "Trustworthy Biomedical Reasoning with Large Language and Vision-Language Models",
   },
   {
     dates: "2019 – 2021",
     degree: "M.S.",
     field: "Bio and Brain Engineering",
     org: "KAIST",
-    detail:
-      "Advised by Yong Jeong. Thesis: Graph Neural Network for Predicting Alzheimer's Disease.",
+    advisor: "Yong Jeong",
+    thesis: "Graph Neural Network for Predicting Alzheimer's Disease",
   },
   {
     dates: "2013 – 2018",
