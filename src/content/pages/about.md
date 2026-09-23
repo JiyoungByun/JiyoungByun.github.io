@@ -8,17 +8,8 @@ I'm a Ph.D. candidate in Biomedical Engineering at **Johns Hopkins University**,
 December 2026 and I'm looking for **industry AI research roles**.
 
 My thesis is on *trustworthy biomedical reasoning with large language and vision-language
-models*. Concretely, that means four threads:
-
-- **Calibration and hallucination.** Medical VLMs are systematically overconfident, and
-  neither scaling nor prompting fixes it. I work on grounding confidence in what the model
-  actually saw.
-- **Multi-agent systems.** Orchestrating LLM agents for scientific hypothesis generation,
-  and measuring whether their output is faithful when there's no ground truth to check against.
-- **Test-time scaling.** How much extra compute at inference actually buys you on clinical
-  reasoning tasks, and where the returns stop.
-- **Efficient inference.** Token reduction and early exiting for medical vision transformers,
-  so these models are cheap enough to deploy.
+models*. The four threads are summarised on the [homepage](/); this page is the longer
+version of how I got here.
 
 ## Background
 

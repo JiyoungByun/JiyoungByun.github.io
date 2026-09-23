@@ -13,6 +13,7 @@ import LinkButton from "@/components/LinkButton.astro";
 import PubList from "@/components/PubList.astro";
 import { getSortedPosts } from "@/utils/getSortedPosts";
 import { selectedPublications } from "@/data/publications";
+import { threads } from "@/data/threads";
 import config from "@/config";
 
 const { posts: postsConfig } = config;
@@ -55,8 +56,14 @@ const homePath = getRelativeLocaleUrl(locale, "");
             Rama Chellappa. Graduating December 2026 and looking for industry research
             roles.
           </p>
-          <div class="mt-5 flex items-center">
+          <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
             <Socials />
+            <LinkButton
+              class="text-accent text-sm"
+              href={getRelativeLocaleUrl(locale, "about")}
+            >
+              More about me &rarr;
+            </LinkButton>
           </div>
         </div>
         <Image
@@ -68,6 +75,28 @@ const homePath = getRelativeLocaleUrl(locale, "");
           class="border-border size-28 shrink-0 rounded-md border object-cover sm:size-33"
         />
       </div>
+    </section>
+
+    <section id="research-threads" class="border-border border-b pt-10 pb-8">
+      <h2
+        class="text-muted-foreground m-0 font-mono text-xs tracking-widest uppercase"
+      >
+        What I work on
+      </h2>
+      <dl class="mt-4 grid grid-cols-2 gap-x-8 gap-y-5 max-sm:grid-cols-1">
+        {
+          threads.map(thread => (
+            <div>
+              <dt class="text-foreground text-sm font-semibold">
+                {thread.name}
+              </dt>
+              <dd class="text-muted-foreground mt-1 ms-0 text-sm leading-relaxed">
+                {thread.blurb}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
     </section>
 
     {
