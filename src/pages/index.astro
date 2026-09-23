@@ -35,7 +35,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
     <!-- Hero: name set large beside the portrait, bio and links beneath. -->
     <section id="hero" class="border-border border-b pt-8 pb-8">
       <div
-        class="flex items-start gap-8 max-sm:flex-col-reverse max-sm:gap-5"
+        class="flex gap-8 max-sm:flex-col-reverse max-sm:gap-5 sm:items-stretch"
       >
         <div class="min-w-0 flex-1">
           <h1
@@ -66,14 +66,18 @@ const homePath = getRelativeLocaleUrl(locale, "");
             </LinkButton>
           </div>
         </div>
-        <Image
-          src={profile}
-          alt="Ji Young Byun"
-          width={132}
-          height={132}
-          loading="eager"
-          class="border-border size-28 shrink-0 rounded-md border object-cover sm:size-33"
-        />
+        {/* Wrapper stretches to the text column's height, so the photo's top and
+            bottom edges line up with the block beside it instead of floating. */}
+        <div class="shrink-0 max-sm:w-28 sm:w-36 sm:self-stretch">
+          <Image
+            src={profile}
+            alt="Ji Young Byun"
+            width={288}
+            height={360}
+            loading="eager"
+            class="border-border w-full rounded-md border object-cover object-top max-sm:aspect-square sm:h-full"
+          />
+        </div>
       </div>
     </section>
 
