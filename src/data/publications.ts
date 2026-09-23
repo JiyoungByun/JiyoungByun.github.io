@@ -82,7 +82,8 @@ export const publications: Publication[] = [
   {
     // TODO(jy): confirm the author list — the resume lists this under research
     // experience rather than publications, so the ordering below is a guess.
-    title: "Smartphone-Based Cataract Detection under Data Shifts",
+    title:
+      "Cataract Detection from Small Datasets: Fine-Tuning Approaches and Real-World Validation under Data Shifts",
     authors: "Byun, J. Y., et al.",
     venue: "npj Digital Medicine",
     year: 2026,
@@ -90,7 +91,7 @@ export const publications: Publication[] = [
   },
   {
     title:
-      "Cataract Detection from Small Datasets: Fine-Tuning and Real-World Validation under Data Shifts",
+      "Precise Lens Status Classification via Projection Tuning for Efficient Adaptation to Data Shifts in Small Cataract Image Datasets",
     authors:
       "Byun, J. Y.*, Shuff, J. M.*, Munoz, R., Venkatesh, R., Shekhawat, N. S., Parikh, K. S., & Chellappa, R.",
     venue: "NeurIPS 2024 AIM-FM Workshop",
