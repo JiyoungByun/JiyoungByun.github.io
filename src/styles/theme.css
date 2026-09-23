@@ -2,6 +2,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-muted: var(--muted);
@@ -12,11 +13,13 @@
   --font-mono: var(--font-ibm-plex-mono);
 }
 
-/* Light theme — blue-biased neutrals, ink-navy text, one mid-blue accent */
+/* Light theme — blue-biased neutrals, ink-navy text, one mid-blue accent.
+   --card is the raised surface: plain white, which lifts off the blue-grey ground. */
 :root,
 [data-theme="light"] {
   --background: #f7f9fc;
   --foreground: #0e1a2b;
+  --card: #ffffff;
   --accent: #1b5fa8;
   --accent-foreground: #ffffff;
   --muted: #e4eaf2;
@@ -24,10 +27,12 @@
   --border: #d8e0eb;
 }
 
-/* Dark theme — authored, not inverted: accent lightens so it holds on a dark ground */
+/* Dark theme — authored, not inverted: accent lightens so it holds on a dark ground,
+   and --card lifts one step above the background rather than going white. */
 [data-theme="dark"] {
   --background: #0d1319;
   --foreground: #e4eaf2;
+  --card: #161e29;
   --accent: #62a9e5;
   --accent-foreground: #0b1017;
   --muted: #1e2733;
