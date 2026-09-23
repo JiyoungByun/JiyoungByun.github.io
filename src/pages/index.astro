@@ -1,0 +1,134 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import profile from "@/assets/images/profile.jpg";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
+import Card from "@/components/Card.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import PubList from "@/components/PubList.astro";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import { selectedPublications } from "@/data/publications";
+import config from "@/config";
+
+const { posts: postsConfig } = config;
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const posts = await getCollection("posts");
+const recentPosts = getSortedPosts(posts).slice(0, postsConfig.perIndex);
+const homePath = getRelativeLocaleUrl(locale, "");
+---
+
+<Layout>
+  <Header />
+  <main
+    id="main-content"
+    data-layout="index"
+    data-home-path={homePath}
+    class="app-layout my-1"
+  >
+    <!-- Hero: name set large beside the portrait, bio and links beneath. -->
+    <section id="hero" class="border-border border-b pt-8 pb-8">
+      <div
+        class="flex items-start gap-8 max-sm:flex-col-reverse max-sm:gap-5"
+      >
+        <div class="min-w-0 flex-1">
+          <h1
+            class="font-display text-foreground m-0 text-4xl leading-none font-bold tracking-tight sm:text-5xl"
+          >
+            Ji Young Byun
+          </h1>
+          <p
+            class="text-accent mt-3 mb-0 font-mono text-xs tracking-widest uppercase"
+          >
+            Ph.D. Candidate &middot; Johns Hopkins BME
+          </p>
+          <p class="text-muted-foreground mt-4 mb-0 max-w-prose">
+            I work on <strong class="text-foreground font-semibold"
+              >trustworthy biomedical reasoning</strong
+            > with large language and vision-language models &mdash; calibration,
+            hallucination, multi-agent systems and efficient inference. Advised by
+            Rama Chellappa. Graduating December 2026 and looking for industry research
+            roles.
+          </p>
+          <div class="mt-5 flex items-center">
+            <Socials />
+          </div>
+        </div>
+        <Image
+          src={profile}
+          alt="Ji Young Byun"
+          width={132}
+          height={132}
+          loading="eager"
+          class="border-border size-28 shrink-0 rounded-md border object-cover sm:size-33"
+        />
+      </div>
+    </section>
+
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="border-border border-b pt-10 pb-6">
+          <div class="flex items-baseline justify-between gap-4">
+            <h2 class="text-muted-foreground m-0 font-mono text-xs tracking-widest uppercase">
+              Recent writing
+            </h2>
+            <LinkButton
+              class="text-accent text-sm"
+              href={getRelativeLocaleUrl(locale, "posts")}
+            >
+              all posts &rarr;
+            </LinkButton>
+          </div>
+          <ul class="mt-2">
+            {recentPosts.map(data => (
+              <Card variant="h3" {...data} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <section id="selected-research" class="pt-10 pb-6">
+      <div class="flex items-baseline justify-between gap-4">
+        <h2
+          class="text-muted-foreground m-0 font-mono text-xs tracking-widest uppercase"
+        >
+          Selected research
+        </h2>
+        <LinkButton
+          class="text-accent text-sm"
+          href={getRelativeLocaleUrl(locale, "research")}
+        >
+          all publications &rarr;
+        </LinkButton>
+      </div>
+      <div class="mt-2">
+        <PubList items={selectedPublications} compact />
+      </div>
+    </section>
+
+    <div class="my-8 text-center">
+      <LinkButton href={getRelativeLocaleUrl(locale, "posts")}>
+        All posts
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset;
+    const baseRoot = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+    if (indexLayout?.layout) {
+      sessionStorage.setItem("backUrl", indexLayout.homePath ?? baseRoot);
+    }
+  });
+</script>

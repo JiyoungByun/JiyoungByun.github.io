@@ -1,0 +1,79 @@
+---
+import type { Publication } from "@/data/publications";
+
+interface Props {
+  items: Publication[];
+  /** Compact form drops the author list — used on the homepage. */
+  compact?: boolean;
+}
+
+const { items, compact = false } = Astro.props;
+
+const statusLabel: Record<Publication["status"], string | null> = {
+  published: null,
+  accepted: null,
+  "under-review": "under review",
+  submitted: "submitted",
+};
+---
+
+<ol class="not-prose m-0 list-none p-0">
+  {
+    items.map(pub => (
+      <li class="border-border border-b py-4 last:border-b-0">
+        <div class="grid grid-cols-[3rem_1fr] gap-x-4 max-sm:grid-cols-1 max-sm:gap-x-0">
+          <span class="text-muted-foreground font-mono text-sm tabular-nums max-sm:hidden">
+            {pub.year}
+          </span>
+          <div>
+            <h3 class="text-foreground m-0 text-base leading-snug font-semibold">
+              {pub.title}
+              {pub.equalContribution && (
+                <span
+                  class="text-muted-foreground font-normal"
+                  title="Equal contribution"
+                >
+                  {" "}
+                  *
+                </span>
+              )}
+            </h3>
+            {!compact && (
+              <p class="text-muted-foreground mt-1 mb-0 text-sm">
+                {pub.authors}
+              </p>
+            )}
+            <div class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span class="text-accent font-mono text-xs font-medium">
+                {pub.venue}
+                <span class="sm:hidden"> · {pub.year}</span>
+              </span>
+              {statusLabel[pub.status] && (
+                <span class="text-muted-foreground border-border rounded border px-1.5 py-px font-mono text-[0.6875rem]">
+                  {statusLabel[pub.status]}
+                </span>
+              )}
+              {pub.links?.map(link => (
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-muted-foreground hover:text-accent border-border hover:border-accent rounded border px-1.5 py-px font-mono text-[0.6875rem] transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </li>
+    ))
+  }
+</ol>
+{
+  items.some(p => p.equalContribution) && (
+    <p class="text-muted-foreground mt-3 mb-0 font-mono text-xs">
+      * equal contribution
+    </p>
+  )
+}
