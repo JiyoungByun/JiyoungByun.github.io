@@ -16,8 +16,9 @@ export type PubStatus =
 export interface Publication {
   title: string;
   authors: string;
-  /** Venue as it should read on the page. No impact factors. */
-  venue: string;
+  /** Venue as it should read on the page. No impact factors.
+   *  Omitted for work with no venue to claim yet. */
+  venue?: string;
   year: number;
   status: PubStatus;
   /** Shown on the homepage's "Selected research" block. */
@@ -90,7 +91,6 @@ export const publications: Publication[] = [
     title:
       "Cataract Detection from Small Datasets: Fine-Tuning Approaches and Real-World Validation under Data Shifts",
     authors: "Byun, J. Y., et al.",
-    venue: "npj Digital Medicine",
     year: 2026,
     status: "in-preparation",
   },

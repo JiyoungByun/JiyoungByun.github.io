@@ -53,10 +53,16 @@ const SELF = /(Byun,\s*J\.\s*Y\.)/g;
               </p>
             )}
             <div class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span class="text-accent font-mono text-xs font-medium">
-                {pub.venue}
-                <span class="sm:hidden"> · {pub.year}</span>
-              </span>
+              {pub.venue ? (
+                <span class="text-accent font-mono text-xs font-medium">
+                  {pub.venue}
+                  <span class="sm:hidden"> · {pub.year}</span>
+                </span>
+              ) : (
+                <span class="text-muted-foreground font-mono text-xs sm:hidden">
+                  {pub.year}
+                </span>
+              )}
               {statusLabel[pub.status] && (
                 <span class="text-muted-foreground border-border rounded border px-1.5 py-px font-mono text-[0.6875rem]">
                   {statusLabel[pub.status]}
