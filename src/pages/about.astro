@@ -2,7 +2,6 @@
 import { getEntry, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
 import Footer from "@/components/Footer.astro";
 import { roles, degrees } from "@/data/career";
 import config from "@/config";
@@ -25,7 +24,6 @@ const { Content } = await render(about);
   canonicalURL={about.data.canonicalURL}
 >
   <Header />
-  <Breadcrumb />
 
   <main id="main-content" class="app-layout my-1">
     <section class="border-border border-b pt-4 pb-8">

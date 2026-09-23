@@ -56,8 +56,14 @@ const homePath = getRelativeLocaleUrl(locale, "");
             Rama Chellappa. Graduating December 2026 and looking for industry research
             roles.
           </p>
-          <div class="mt-5 flex items-center">
+          <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
             <Socials />
+            <LinkButton
+              class="text-accent text-sm"
+              href={getRelativeLocaleUrl(locale, "about")}
+            >
+              More about me &rarr;
+            </LinkButton>
           </div>
         </div>
         {/* The source photo is 354x472 — exactly 3:4 — so the box keeps that ratio
