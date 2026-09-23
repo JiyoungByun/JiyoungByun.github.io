@@ -17,8 +17,13 @@ export interface Publication {
   status: PubStatus;
   /** Shown on the homepage's "Selected research" block. */
   selected?: boolean;
-  /** Marks shared first authorship, rendered as a footnote. */
+  /** Marks shared first authorship. */
   equalContribution?: boolean;
+  /**
+   * Canonical URL for the published version. Currently NOT rendered — kept so the
+   * link isn't lost if the venue name should become clickable later.
+   */
+  venueUrl?: string;
   links?: { label: string; url: string }[];
 }
 
@@ -57,12 +62,7 @@ export const publications: Publication[] = [
     year: 2026,
     status: "published",
     selected: true,
-    links: [
-      {
-        label: "proceedings",
-        url: "https://proceedings.mlr.press/v315/byun26a.html",
-      },
-    ],
+    venueUrl: "https://proceedings.mlr.press/v315/byun26a.html",
   },
   {
     title:
@@ -74,10 +74,11 @@ export const publications: Publication[] = [
     status: "published",
     selected: true,
     equalContribution: true,
+    venueUrl: "https://proceedings.mlr.press/v315/byun26b.html",
     links: [
       {
-        label: "proceedings",
-        url: "https://proceedings.mlr.press/v315/byun26b.html",
+        label: "project page",
+        url: "https://hyunseolee43.github.io/adaptive-inference-med-vit/",
       },
     ],
   },
@@ -108,12 +109,7 @@ export const publications: Publication[] = [
     year: 2022,
     status: "published",
     selected: true,
-    links: [
-      {
-        label: "paper",
-        url: "https://www.cell.com/cell/fulltext/S0092-8674(22)00467-6",
-      },
-    ],
+    venueUrl: "https://www.cell.com/cell/fulltext/S0092-8674(22)00467-6",
   },
   {
     title:
@@ -122,12 +118,7 @@ export const publications: Publication[] = [
     venue: "bioRxiv",
     year: 2021,
     status: "published",
-    links: [
-      {
-        label: "preprint",
-        url: "https://www.biorxiv.org/content/10.1101/2021.01.21.427712v1",
-      },
-    ],
+    venueUrl: "https://www.biorxiv.org/content/10.1101/2021.01.21.427712v1",
   },
   {
     title:
@@ -136,7 +127,7 @@ export const publications: Publication[] = [
     venue: "Theranostics",
     year: 2017,
     status: "published",
-    links: [{ label: "paper", url: "https://www.thno.org/v07p3179.pdf" }],
+    venueUrl: "https://www.thno.org/v07p3179.pdf",
   },
 ];
 
