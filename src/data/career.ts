@@ -25,18 +25,7 @@ export interface Degree {
 }
 
 export const roles: Role[] = [
-  {
-    title: "Research Intern",
-    org: "Merck & Co.",
-    dates: "Feb 2026 – Aug 2026",
-    summary:
-      "Multi-agent AI for pharmaceutical toxicology hypothesis generation.",
-    bullets: [
-      "Designed and built an end-to-end multi-agent framework for toxicology hypothesis generation, integrating enterprise multimodal databases for drug safety and mechanistic reasoning.",
-      "Developed an evidence-grounding and evaluation framework to quantify LLM hypothesis faithfulness without ground-truth labels, systematically comparing agent architectures.",
-    ],
-    tags: ["Multi-agent", "Tool-calling", "LangChain", "Databricks"],
-  },
+  // Ordered by end date, so the role still running comes first.
   {
     title: "Graduate Research Assistant",
     org: "Johns Hopkins University",
@@ -51,6 +40,18 @@ export const roles: Role[] = [
       "Built a smartphone-imaging pipeline for cataract screening with ophthalmologists at the JHU Wilmer Eye Institute and Aravind Eye Hospital, reaching 91% accuracy in prospective deployment in rural India.",
     ],
     tags: ["PyTorch", "VLMs", "Calibration", "Efficient inference"],
+  },
+  {
+    title: "Research Intern",
+    org: "Merck & Co.",
+    dates: "Feb 2026 – Aug 2026",
+    summary:
+      "Multi-agent AI for pharmaceutical toxicology hypothesis generation.",
+    bullets: [
+      "Designed and built an end-to-end multi-agent framework for toxicology hypothesis generation, integrating enterprise multimodal databases for drug safety and mechanistic reasoning.",
+      "Developed an evidence-grounding and evaluation framework to quantify LLM hypothesis faithfulness without ground-truth labels, systematically comparing agent architectures.",
+    ],
+    tags: ["Multi-agent", "Tool-calling", "LangChain", "Databricks"],
   },
   {
     title: "Research Associate",
