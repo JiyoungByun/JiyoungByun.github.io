@@ -6,7 +6,12 @@
  * 2024 onward. Newest first. Add new entries at the top.
  */
 
-export type PubStatus = "published" | "accepted" | "under-review" | "submitted";
+export type PubStatus =
+  | "published"
+  | "accepted"
+  | "in-preparation"
+  | "under-review"
+  | "submitted";
 
 export interface Publication {
   title: string;
@@ -87,7 +92,7 @@ export const publications: Publication[] = [
     authors: "Byun, J. Y., et al.",
     venue: "npj Digital Medicine",
     year: 2026,
-    status: "under-review",
+    status: "in-preparation",
   },
   {
     title:

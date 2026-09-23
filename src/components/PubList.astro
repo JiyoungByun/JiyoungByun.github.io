@@ -12,6 +12,7 @@ const { items, compact = false } = Astro.props;
 const statusLabel: Record<Publication["status"], string | null> = {
   published: null,
   accepted: null,
+  "in-preparation": "in preparation",
   "under-review": "under review",
   submitted: null,
 };
