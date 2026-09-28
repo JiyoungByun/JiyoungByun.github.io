@@ -35,8 +35,21 @@ const homePath = getRelativeLocaleUrl(locale, "");
     <!-- Hero: name set large beside the portrait, bio and links beneath. -->
     <section id="hero" class="border-border border-b pt-8 pb-8">
       <div
-        class="flex gap-8 max-sm:flex-col-reverse max-sm:gap-5 sm:items-stretch"
+        class="flex gap-8 max-sm:flex-col max-sm:gap-5 sm:items-start"
       >
+        {/* The headshot is exactly 3:4, so the box keeps that ratio and
+            object-cover crops nothing. It leads the row on desktop and sits
+            above the text on phones. */}
+        <div class="shrink-0 max-sm:w-28 sm:w-44">
+          <Image
+            src={profile}
+            alt="Ji Young Byun"
+            width={352}
+            height={470}
+            loading="eager"
+            class="border-border w-full rounded-md border object-cover object-top max-sm:aspect-square sm:aspect-[3/4]"
+          />
+        </div>
         <div class="min-w-0 flex-1">
           <h1
             class="font-display text-foreground m-0 text-4xl leading-none font-bold tracking-tight sm:text-5xl"
@@ -79,19 +92,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
             </LinkButton>
           </div>
         </div>
-        {/* The source photo is 354x472 — exactly 3:4 — so the box keeps that ratio
-            and object-cover crops nothing. At 176px wide it stands ~235px tall,
-            which tracks the height of the text block beside it. */}
-        <div class="shrink-0 max-sm:w-28 sm:w-44">
-          <Image
-            src={profile}
-            alt="Ji Young Byun"
-            width={352}
-            height={470}
-            loading="eager"
-            class="border-border w-full rounded-md border object-cover object-top max-sm:aspect-square sm:aspect-[3/4]"
-          />
-        </div>
+
       </div>
     </section>
 
