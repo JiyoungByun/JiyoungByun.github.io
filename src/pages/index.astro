@@ -34,12 +34,13 @@ const homePath = getRelativeLocaleUrl(locale, "");
   >
     <!-- Hero: name set large beside the portrait, bio and links beneath. -->
     <section id="hero" class="border-border border-b pt-8 pb-8">
-      {/* Two-column grid rather than a flex row: the photo is placed in the same
-          grid row as the body copy, so its top edge lines up with "I develop
-          methods…" automatically — no hand-tuned offset to drift when the type
-          scale changes. The name sits in row 1 of the right-hand column. */}
-      <div class="grid gap-x-8 gap-y-5 sm:grid-cols-[11rem_1fr] sm:gap-y-4">
-        <div class="max-sm:w-28 sm:col-start-1 sm:row-start-2 sm:self-start">
+      <div
+        class="flex gap-8 max-sm:flex-col max-sm:gap-5 sm:items-start"
+      >
+        {/* The headshot is exactly 3:4, so the box keeps that ratio and
+            object-cover crops nothing. It leads the row on desktop and sits
+            above the text on phones. */}
+        <div class="shrink-0 max-sm:w-28 sm:w-44">
           <Image
             src={profile}
             alt="Ji Young Byun"
@@ -49,8 +50,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
             class="border-border w-full rounded-md border object-cover object-top max-sm:aspect-square sm:aspect-[3/4]"
           />
         </div>
-
-        <div class="min-w-0 sm:col-start-2 sm:row-start-1">
+        <div class="min-w-0 flex-1">
           <h1
             class="font-display text-foreground m-0 text-4xl leading-none font-bold tracking-tight sm:text-5xl"
           >
@@ -61,10 +61,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
           >
             Ph.D. Candidate &middot; Johns Hopkins BME
           </p>
-        </div>
-
-        <div class="min-w-0 sm:col-start-2 sm:row-start-2">
-          <p class="text-muted-foreground m-0 max-w-prose">
+          <p class="text-muted-foreground mt-4 mb-0 max-w-prose">
             I develop methods to make AI reasoning <strong
               class="text-foreground font-semibold">more capable and reliable</strong
             > for <strong class="text-foreground font-semibold"
@@ -95,6 +92,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
             </LinkButton>
           </div>
         </div>
+
       </div>
     </section>
 
