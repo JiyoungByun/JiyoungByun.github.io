@@ -6,23 +6,23 @@ export interface Thread {
 
 export const threads: Thread[] = [
   {
-    name: "Reliable Reasoning",
+    name: "Reliable AI Systems",
     blurb:
-      "I develop methods to improve biomedical reasoning and estimate when model answers can be trusted. My work combines test-time scaling for clinical decision-making with hallucination-aware calibration of medical vision-language models.",
+      "I develop methods to improve AI reasoning and make uncertainty and failure modes more visible, supporting reliable use in healthcare and science.",
   },
   {
     name: "Evaluation & Measurement",
     blurb:
-      "I design evaluations for AI-generated scientific hypotheses when reference answers are unavailable. I audit how LLM judges and comparison criteria shape conclusions about self-critique, output stability, and diversity.",
+      "I study how to evaluate AI capabilities and limitations, and whether our metrics and evaluators capture meaningful progress.",
   },
   {
     name: "Agentic Systems",
     blurb:
-      "I build multi-agent workflows for biomedical hypothesis generation, integrating evidence retrieval and iterative critique. I study how agent interactions change the resulting hypotheses and where additional critique offers diminishing returns.",
+      "I build and study AI agents that use evidence, tools, and collaboration to tackle complex tasks, exploring what makes their reasoning and interactions more effective and reliable.",
   },
   {
-    name: "Clinical Translation",
+    name: "Research to Practice",
     blurb:
-      "I work with clinicians to adapt and evaluate medical imaging AI across devices, populations, and computational constraints. This includes smartphone-based cataract screening evaluated prospectively in rural India.",
+      "I collaborate with researchers, clinicians, and engineers to connect advances in AI with practical needs in healthcare and science, aiming to build systems that support better decisions and scientific discovery.",
   },
 ];
