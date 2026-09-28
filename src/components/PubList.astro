@@ -23,6 +23,14 @@ const statusLabel: Record<Publication["status"], string | null> = {
  * Tolerates the trailing "*" used for shared first authorship.
  */
 const SELF = /(Byun,\s*J\.\s*Y\.)/g;
+
+/** Glyph per link kind. Unknown labels simply render without one. */
+const linkIcon: Record<string, string> = {
+  paper: "📄",
+  arXiv: "📝",
+  code: "💻",
+  "project page": "🌐",
+};
 ---
 
 <ol class="not-prose m-0 list-none p-0">
@@ -75,6 +83,7 @@ const SELF = /(Byun,\s*J\.\s*Y\.)/g;
                   rel="noopener noreferrer"
                   class="text-muted-foreground hover:text-accent border-border hover:border-accent rounded border px-1.5 py-px font-mono text-[0.6875rem] transition-colors"
                 >
+                  {linkIcon[link.label] ? `${linkIcon[link.label]} ` : ""}
                   {link.label}
                 </a>
               ))}
