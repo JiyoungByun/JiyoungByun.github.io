@@ -7,6 +7,9 @@ I'm a Ph.D. candidate in Biomedical Engineering at **Johns Hopkins University**,
 [Rama Chellappa](https://engineering.jhu.edu/faculty/rama-chellappa/). I graduate in
 December 2026 and I'm looking for **industry AI research roles**.
 
-My thesis is on *trustworthy biomedical reasoning with large language and vision-language
-models* — the four threads are summarised on the [homepage](/). This page is the longer
-version of how I got here.
+The thread running through all of it is deployment. I care less about a benchmark number
+than about whether a model holds up on a new scanner, in a different clinic, with a
+different population — and whether anyone can tell when it doesn't. That question has
+taken me from graph neural networks on resting-state fMRI at KAIST, through multi-agent
+systems for hypothesis generation at Merck, to calibration and evaluation of
+vision-language models at Hopkins.
