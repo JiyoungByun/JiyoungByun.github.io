@@ -108,13 +108,8 @@ const homePath = getRelativeLocaleUrl(locale, "");
               <dt class="text-foreground text-sm font-semibold">
                 {thread.name}
               </dt>
-              <dd class="ms-0 mt-1 text-sm leading-relaxed">
-                <span class="text-foreground/80 block italic">
-                  {thread.question}
-                </span>
-                <span class="text-muted-foreground mt-1 block">
-                  {thread.blurb}
-                </span>
+              <dd class="text-muted-foreground mt-1 ms-0 text-sm leading-relaxed">
+                {thread.blurb}
               </dd>
             </div>
           ))

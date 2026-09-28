@@ -1,38 +1,28 @@
-/**
- * The four research threads, on the homepage.
- * Each opens with the question the work is trying to answer.
- */
+/** The four research threads, on the homepage. */
 export interface Thread {
   name: string;
-  question: string;
   blurb: string;
 }
 
 export const threads: Thread[] = [
   {
-    name: "Reliable Reasoning & Calibration",
-    question: "When should we trust a model’s answer?",
+    name: "Reliable Reasoning",
     blurb:
-      "I study hallucinations and overconfidence in medical vision-language models, developing calibration methods that use visual evidence to better estimate answer reliability.",
+      "I develop methods to improve biomedical reasoning and estimate when model answers can be trusted. My work combines test-time scaling for clinical decision-making with hallucination-aware calibration of medical vision-language models.",
   },
   {
-    name: "Agentic Systems & Evaluation",
-    question:
-      "How do we evaluate scientific agents when there is no reference answer?",
+    name: "Evaluation & Measurement",
     blurb:
-      "I build multi-agent workflows for biomedical hypothesis generation and study self-critique, output stability, and the reliability of LLM-based evaluators.",
+      "I design evaluations for AI-generated scientific hypotheses when reference answers are unavailable. I audit how LLM judges and comparison criteria shape conclusions about self-critique, output stability, and diversity.",
   },
   {
-    name: "Inference-Time Scaling & Efficiency",
-    question:
-      "When does more computation improve an answer—and when is less enough?",
+    name: "Agentic Systems",
     blurb:
-      "I develop test-time scaling and adaptive inference methods to improve medical AI’s accuracy–compute trade-offs.",
+      "I build multi-agent workflows for biomedical hypothesis generation, integrating evidence retrieval and iterative critique. I study how agent interactions change the resulting hypotheses and where additional critique offers diminishing returns.",
   },
   {
-    name: "Robustness & Clinical Translation",
-    question: "How well do models transfer across devices and patient populations?",
+    name: "Clinical Translation",
     blurb:
-      "I study adaptation under data shift and work with clinicians to bring medical imaging AI into prospective field evaluation.",
+      "I work with clinicians to adapt and evaluate medical imaging AI across devices, populations, and computational constraints. This includes smartphone-based cataract screening evaluated prospectively in rural India.",
   },
 ];
