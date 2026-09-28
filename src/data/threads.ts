@@ -6,23 +6,23 @@ export interface Thread {
 
 export const threads: Thread[] = [
   {
-    name: "Reliable AI Systems",
+    name: "Reliable Systems",
     blurb:
-      "I develop methods to improve AI reasoning and make uncertainty and failure modes more visible, supporting reliable use in healthcare and science.",
+      "Develop methods to improve reasoning in large language and vision-language models and identify when their answers can be trusted.",
   },
   {
     name: "Evaluation & Measurement",
     blurb:
-      "I study how to evaluate AI capabilities and limitations, and whether our metrics and evaluators capture meaningful progress.",
+      "Study how to evaluate model capabilities and limitations, including the reliability of LLM-based judges and whether evaluation metrics capture meaningful progress.",
   },
   {
     name: "Agentic Systems",
     blurb:
-      "I build and study AI agents that use evidence, tools, and collaboration to tackle complex tasks, exploring what makes their reasoning and interactions more effective and reliable.",
+      "Build multi-agent systems that combine evidence, tools, and collaboration to tackle complex tasks, exploring what makes their reasoning and interactions more effective and reliable.",
   },
   {
     name: "Research to Practice",
     blurb:
-      "I collaborate with researchers, clinicians, and engineers to connect advances in AI with practical needs in healthcare and science, aiming to build systems that support better decisions and scientific discovery.",
+      "Collaborate with researchers, clinicians, and engineers to connect advances in AI with practical needs in healthcare and science, aiming to build systems that support better decisions and scientific discovery.",
   },
 ];
