@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import PubList from "@/components/PubList.astro";
+import PubTable from "@/components/PubTable.astro";
 import { publications } from "@/data/publications";
 ---
 
@@ -16,7 +16,7 @@ import { publications } from "@/data/publications";
         Publications
       </h1>
       <div class="mt-8">
-        <PubList items={publications} />
+        <PubTable items={publications} />
       </div>
     </section>
   </main>

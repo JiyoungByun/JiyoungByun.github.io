@@ -1,0 +1,272 @@
+---
+import type { Publication } from "@/data/publications";
+
+interface Props {
+  items: Publication[];
+}
+const { items } = Astro.props;
+
+const statusLabel: Record<Publication["status"], string | null> = {
+  published: null,
+  accepted: null,
+  "in-preparation": "in preparation",
+  "under-review": "under review",
+  submitted: null,
+};
+
+const linkIcon: Record<string, string> = {
+  paper: "📄",
+  arXiv: "📄",
+  code: "💻",
+  "project page": "🌐",
+};
+
+/** Her name, kept as a capturing group so split() returns the delimiter too. */
+const SELF = /(Byun,\s*J\.\s*Y\.)/g;
+
+const selectedCount = items.filter(p => p.selected).length;
+---
+
+<div class="pub-controls">
+  <span class="pub-toggle">
+    <button type="button" id="pub-all" class="is-on">All ({items.length})</button>
+    <span aria-hidden="true">|</span>
+    <button type="button" id="pub-sel">Selected ({selectedCount})</button>
+  </span>
+</div>
+
+<ol class="pubs" id="pub-list">
+  {
+    items.map(pub => (
+      <li class:list={["pub", { "is-selected": pub.selected }]}>
+        <div class="pub-fig">
+          {pub.image ? (
+            <img src={pub.image} alt="" loading="lazy" decoding="async" />
+          ) : (
+            <span class="pub-fig-empty">{pub.venue ?? pub.year}</span>
+          )}
+        </div>
+        <div class="pub-body">
+          <h3 class="pub-title">
+            {pub.links?.[0] ? (
+              <a href={pub.links[0].url} target="_blank" rel="noopener noreferrer">
+                {pub.title}
+              </a>
+            ) : (
+              pub.title
+            )}
+          </h3>
+          <p class="pub-authors">
+            {pub.authors
+              .split(SELF)
+              .map(part =>
+                /^Byun,\s*J\.\s*Y\.$/.test(part) ? <strong>{part}</strong> : part
+              )}
+          </p>
+          <p class="pub-venue">
+            {pub.venue ? (
+              <strong>{pub.venue}</strong>
+            ) : (
+              <span class="pub-year">{pub.year}</span>
+            )}
+            {statusLabel[pub.status] && (
+              <span class="pub-status">{statusLabel[pub.status]}</span>
+            )}
+          </p>
+          {pub.links && (
+            <div class="pub-links">
+              {pub.links.map(link => (
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  {linkIcon[link.label] ? `${linkIcon[link.label]} ` : ""}
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .pub-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.25rem;
+  }
+  .pub-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+  }
+  .pub-toggle button {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: var(--muted-foreground);
+    cursor: pointer;
+  }
+  .pub-toggle button:hover {
+    color: var(--accent);
+  }
+  .pub-toggle button.is-on {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .pubs {
+    display: grid;
+    gap: 1.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .pub {
+    display: grid;
+    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .pub:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  /* Hidden rather than removed, so the toggle doesn't reflow the page twice. */
+  .pubs.only-selected .pub:not(.is-selected) {
+    display: none;
+  }
+
+  .pub-fig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 0.375rem;
+    background: var(--card);
+  }
+  .pub-fig img {
+    width: 100%;
+    height: 100%;
+    /* Paper figures are wide charts: contain shows all of one, cover would
+       slice the axes off. */
+    object-fit: contain;
+    padding: 0.4rem;
+  }
+  .pub-fig-empty {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    text-align: center;
+    color: var(--muted-foreground);
+    padding: 0.5rem;
+  }
+
+  .pub-title {
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--foreground);
+  }
+  .pub-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .pub-title a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .pub-authors {
+    margin: 0 0 0.3rem;
+    font-size: 0.85rem;
+    color: var(--muted-foreground);
+  }
+  .pub-authors strong {
+    color: var(--foreground);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .pub-venue {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+  .pub-venue strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .pub-year {
+    color: var(--muted-foreground);
+  }
+  .pub-status {
+    color: var(--muted-foreground);
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    padding: 1px 0.4rem;
+    font-size: 0.6875rem;
+  }
+  .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.55rem;
+  }
+  .pub-links a {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--muted-foreground);
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    padding: 1px 0.4rem;
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .pub-links a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .pub {
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+    .pub-fig {
+      max-width: 14rem;
+    }
+  }
+</style>
+
+<script>
+  function wirePubToggle() {
+    const list = document.getElementById("pub-list");
+    const all = document.getElementById("pub-all");
+    const sel = document.getElementById("pub-sel");
+    if (!list || !all || !sel) return;
+    const show = (onlySelected: boolean) => {
+      list.classList.toggle("only-selected", onlySelected);
+      all.classList.toggle("is-on", !onlySelected);
+      sel.classList.toggle("is-on", onlySelected);
+    };
+    all.addEventListener("click", () => show(false));
+    sel.addEventListener("click", () => show(true));
+  }
+  wirePubToggle();
+  document.addEventListener("astro:after-swap", wirePubToggle);
+</script>

@@ -25,6 +25,8 @@ export interface Publication {
   selected?: boolean;
   /** Marks shared first authorship. */
   equalContribution?: boolean;
+  /** Thumbnail for the publications page, served from /public/pubs/. */
+  image?: string;
   links?: { label: string; url: string }[];
 }
 
@@ -48,6 +50,7 @@ export const publications: Publication[] = [
     venue: "COLM 2026",
     year: 2026,
     status: "accepted",
+    image: "/pubs/colm.svg",
     selected: true,
     links: [
       { label: "arXiv", url: "https://arxiv.org/abs/2604.02543" },
@@ -75,6 +78,7 @@ export const publications: Publication[] = [
     venue: "MIDL 2026",
     year: 2026,
     status: "published",
+    image: "/pubs/adaptive.png",
     selected: true,
     equalContribution: true,
     links: [
@@ -102,6 +106,7 @@ export const publications: Publication[] = [
     venue: "NeurIPS 2024 AIM-FM Workshop",
     year: 2024,
     status: "published",
+    image: "/pubs/proj.png",
     equalContribution: true,
     links: [
       { label: "paper", url: "https://openreview.net/forum?id=CMeDPv58rd" },
@@ -114,6 +119,7 @@ export const publications: Publication[] = [
     venue: "Cell",
     year: 2022,
     status: "published",
+    image: "/pubs/cell.jpg",
     selected: true,
     links: [
       {
@@ -129,6 +135,7 @@ export const publications: Publication[] = [
     venue: "bioRxiv",
     year: 2021,
     status: "published",
+    image: "/pubs/appnp.png",
     links: [
       {
         label: "arXiv",
@@ -143,6 +150,7 @@ export const publications: Publication[] = [
     venue: "Theranostics",
     year: 2017,
     status: "published",
+    image: "/pubs/CTC.png",
     links: [{ label: "paper", url: "https://www.thno.org/v07p3179.pdf" }],
   },
 ];
