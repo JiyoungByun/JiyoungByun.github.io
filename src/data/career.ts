@@ -32,7 +32,7 @@ export const roles: Role[] = [
     dates: "Aug 2022 – Dec 2026",
     current: true,
     summary:
-      "Trustworthy biomedical reasoning with large language and vision-language models.",
+      "Towards Reliable Biomedical Decision-Making with Foundation Models.",
     bullets: [
       "Proposed Hallucination-Aware Calibration in collaboration with Microsoft, using vision-grounded hallucination signals to improve reliability and AUROC, with the largest gains on open-ended clinical questions.",
       "Built a test-time scaling framework for medical decision making, reaching up to 30.4 pp AUC improvement across three medical image diagnosis benchmarks and deriving analytical scaling laws.",
@@ -75,7 +75,7 @@ export const degrees: Degree[] = [
     org: "Johns Hopkins University",
     advisor: "Rama Chellappa",
     thesis:
-      "Trustworthy Biomedical Reasoning with Large Language and Vision-Language Models",
+      "Towards Reliable Biomedical Decision-Making with Foundation Models",
   },
   {
     dates: "2019 – 2021",

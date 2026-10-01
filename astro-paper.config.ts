@@ -14,7 +14,7 @@ export default defineAstroPaperConfig({
     url: "https://jiyoungbyun.github.io/",
     title: "Ji Young Byun",
     description:
-      "Ph.D. candidate at Johns Hopkins working on trustworthy biomedical reasoning with large language and vision-language models — calibration, hallucination, multi-agent systems and efficient inference.",
+      "Ph.D. candidate at Johns Hopkins University developing methods to make AI systems more capable and reliable for healthcare and scientific discovery — language models, vision-language models, and multi-agent systems.",
     author: "Ji Young Byun",
     profile: "https://scholar.google.com/citations?user=SvOu4fUAAAAJ",
     ogImage: "default-og.jpg",
