@@ -66,14 +66,12 @@ const { Content } = await render(about);
                   <p class="timeline-summary">{role.summary}</p>
                   <ul class="timeline-bullets">
                     {role.bullets.map(b => (
-                      <li>{b}</li>
+                      <li>
+                        <span class="bullet-name">{b.name}</span>: {b.detail}
+                        {b.venue && <span class="bullet-venue">{b.venue}</span>}
+                      </li>
                     ))}
                   </ul>
-                  <div class="timeline-tags">
-                    {role.tags.map(tag => (
-                      <span>{tag}</span>
-                    ))}
-                  </div>
                 </div>
               </details>
             </li>
@@ -249,19 +247,17 @@ const { Content } = await render(about);
     color: var(--accent);
     font-weight: 700;
   }
-  .timeline-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.9rem;
+  /* Project label: the entry point for each line, so it carries the weight. */
+  .bullet-name {
+    color: var(--foreground);
+    font-weight: 600;
   }
-  .timeline-tags span {
+  .bullet-venue {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    color: var(--muted-foreground);
-    border: 1px solid var(--border);
-    border-radius: 0.25rem;
-    padding: 1px 0.4rem;
+    color: var(--faint, var(--muted-foreground));
+    white-space: nowrap;
+    margin-inline-start: 0.4rem;
   }
 
   @keyframes timeline-fade {

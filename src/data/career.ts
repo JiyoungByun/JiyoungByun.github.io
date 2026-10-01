@@ -4,6 +4,14 @@
  * odd on a public page.
  */
 
+/** One project inside a role: a short label, then what it was. */
+export interface Bullet {
+  name: string;
+  detail: string;
+  /** Venue or collaborator, set small after the detail. */
+  venue?: string;
+}
+
 export interface Role {
   title: string;
   org: string;
@@ -11,8 +19,7 @@ export interface Role {
   /** Still ongoing — gets the filled marker. */
   current?: boolean;
   summary: string;
-  bullets: string[];
-  tags: string[];
+  bullets: Bullet[];
 }
 
 export interface Degree {
@@ -34,12 +41,30 @@ export const roles: Role[] = [
     summary:
       "Towards Reliable Biomedical Decision-Making with Foundation Models.",
     bullets: [
-      "Proposed Hallucination-Aware Calibration in collaboration with Microsoft, using vision-grounded hallucination signals to improve reliability and AUROC, with the largest gains on open-ended clinical questions.",
-      "Built a test-time scaling framework for medical decision making, reaching up to 30.4 pp AUC improvement across three medical image diagnosis benchmarks and deriving analytical scaling laws.",
-      "Proposed a unified adaptive inference framework for medical Vision Transformers — 71.4% average FLOPs reduction at 0.1 pp accuracy loss across five datasets.",
-      "Built a smartphone-imaging pipeline for cataract screening with ophthalmologists at the JHU Wilmer Eye Institute and Aravind Eye Hospital, reaching 91% accuracy in prospective deployment in rural India.",
+      {
+        name: "Hallucination-Aware Calibration",
+        detail:
+          "vision-grounded signals sharpen confidence in medical VQA, with the largest gains on open-ended questions.",
+        venue: "With Microsoft · COLM 2026",
+      },
+      {
+        name: "Test-Time Scaling",
+        detail:
+          "up to 30.4 pp AUC across three diagnosis benchmarks, with analytical scaling laws.",
+        venue: "MIDL 2026",
+      },
+      {
+        name: "Adaptive Inference",
+        detail:
+          "71.4% fewer FLOPs at 0.1 pp accuracy loss across five datasets.",
+        venue: "MIDL 2026",
+      },
+      {
+        name: "Cataract Screening",
+        detail:
+          "smartphone pipeline built with ophthalmologists at the Wilmer Eye Institute and Aravind Eye Hospital, reaching 91% accuracy in prospective deployment in rural India.",
+      },
     ],
-    tags: ["PyTorch", "VLMs", "Calibration", "Efficient inference"],
   },
   {
     title: "Research Intern",
@@ -48,22 +73,34 @@ export const roles: Role[] = [
     summary:
       "Multi-agent AI for pharmaceutical toxicology hypothesis generation.",
     bullets: [
-      "Designed and built an end-to-end multi-agent framework for toxicology hypothesis generation, integrating enterprise multimodal databases for drug safety and mechanistic reasoning.",
-      "Developed an evidence-grounding and evaluation framework to quantify LLM hypothesis faithfulness without ground-truth labels, systematically comparing agent architectures.",
+      {
+        name: "Multi-Agent Hypothesis Generation",
+        detail:
+          "end-to-end framework over enterprise multimodal databases for drug safety and mechanistic reasoning.",
+      },
+      {
+        name: "Faithfulness Evaluation",
+        detail:
+          "quantifies hypothesis grounding without ground-truth labels, and compares agent architectures.",
+      },
     ],
-    tags: ["Multi-agent", "Tool-calling", "LangChain", "Databricks"],
   },
   {
     title: "Research Associate",
     org: "KAIST",
     dates: "Feb 2019 – Apr 2022",
-    summary:
-      "Graph neural networks for Alzheimer's disease classification.",
+    summary: "Graph neural networks for Alzheimer's disease classification.",
     bullets: [
-      "Led a GNN framework for Alzheimer's classification from resting-state fMRI and demographic data, proposing a bipartite subject–demographic graph with APPNP.",
-      "Managed a KAIST–KT Corp. research collaboration funded at $85K per year.",
+      {
+        name: "GNN for Alzheimer's",
+        detail:
+          "bipartite subject–demographic graph with APPNP over resting-state fMRI and demographic data.",
+      },
+      {
+        name: "KAIST–KT Collaboration",
+        detail: "managed a research partnership funded at $85K per year.",
+      },
     ],
-    tags: ["GNN", "rs-fMRI", "PyTorch"],
   },
 ];
 
