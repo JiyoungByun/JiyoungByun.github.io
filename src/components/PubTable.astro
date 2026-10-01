@@ -244,31 +244,28 @@ const selectedCount = items.filter(p => p.selected).length;
   }
 
 
-  @media (hover: hover) and (min-width: 860px) {
-    .pub-fig:has(img) {
-      overflow: visible;
-      cursor: zoom-in;
-    }
-    .pub-fig img {
+  /* Hover lift, matching astrofy's blog cards: a 102% scale and a soft
+     shadow. Enough to register as interactive without covering the citation. */
+  @media (hover: hover) {
+    .pub-fig {
       transition:
-        transform 0.22s ease,
-        box-shadow 0.22s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
     }
-    .pub-fig:hover {
-      z-index: 40;
-    }
-    .pub-fig:hover img {
-      transform: scale(2.3);
-      /* Grows rightward over the citation rather than off the left edge. */
-      transform-origin: left center;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 0.25rem;
-      box-shadow: 0 12px 34px rgb(0 0 0 / 0.28);
+    .pub-fig:has(img):hover {
+      transform: scale(1.02);
+      border-color: var(--accent);
+      box-shadow:
+        0 20px 25px -5px rgb(0 0 0 / 0.1),
+        0 8px 10px -6px rgb(0 0 0 / 0.1);
     }
     @media (prefers-reduced-motion: reduce) {
-      .pub-fig img {
+      .pub-fig {
         transition: none;
+      }
+      .pub-fig:has(img):hover {
+        transform: none;
       }
     }
   }
