@@ -63,6 +63,7 @@ export const roles: Role[] = [
         name: "Cataract Screening",
         detail:
           "smartphone pipeline built with ophthalmologists at the Wilmer Eye Institute and Aravind Eye Hospital, reaching 91% accuracy in prospective deployment in rural India.",
+        venue: "NeurIPS 2024 AIM-FM Workshop",
       },
     ],
   },
@@ -96,6 +97,7 @@ export const roles: Role[] = [
         name: "GNN for Alzheimer's",
         detail:
           "bipartite subject–demographic graph with APPNP over resting-state fMRI and demographic data.",
+        venue: "ASMRM & ICMRI 2020 (Best Poster Award)",
       },
       {
         name: "KAIST–KT Collaboration",
