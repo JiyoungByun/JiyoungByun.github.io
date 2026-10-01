@@ -48,7 +48,9 @@ const { Content } = await render(about);
         {
           roles.map((role, i) => (
             <li class:list={["timeline-item", { current: role.current }]}>
-              <details open={i === 0}>
+              {/* The two most recent roles open by default; the roles array is
+                  ordered by end date, so that is JHU and Merck. */}
+              <details open={i < 2}>
                 <summary class="timeline-head">
                   <span class="timeline-title">
                     <span class="timeline-role">{role.title}</span>
