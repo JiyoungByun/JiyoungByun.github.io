@@ -200,7 +200,8 @@ const { Content } = await render(about);
   }
   .timeline-chevron {
     flex-shrink: 0;
-    font-size: 0.85em;
+    font-size: 1.15rem;
+    line-height: 1;
     color: var(--muted-foreground);
     transition:
       transform 0.2s,
@@ -253,11 +254,16 @@ const { Content } = await render(about);
     font-weight: 600;
   }
   .bullet-venue {
+    display: inline-block;
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    color: var(--faint, var(--muted-foreground));
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    padding: 1px 0.4rem;
     white-space: nowrap;
-    margin-inline-start: 0.4rem;
+    margin-inline-start: 0.45rem;
+    vertical-align: 1px;
   }
 
   @keyframes timeline-fade {

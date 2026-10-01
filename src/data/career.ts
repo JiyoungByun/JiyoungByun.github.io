@@ -45,7 +45,7 @@ export const roles: Role[] = [
         name: "Hallucination-Aware Calibration",
         detail:
           "vision-grounded signals sharpen confidence in medical VQA, with the largest gains on open-ended questions.",
-        venue: "With Microsoft · COLM 2026",
+        venue: "COLM 2026",
       },
       {
         name: "Test-Time Scaling",
@@ -82,6 +82,7 @@ export const roles: Role[] = [
         name: "Faithfulness Evaluation",
         detail:
           "quantifies hypothesis grounding without ground-truth labels, and compares agent architectures.",
+        venue: "NeurIPS 2026 AgenticLS Workshop",
       },
     ],
   },
