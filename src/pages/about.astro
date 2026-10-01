@@ -68,7 +68,9 @@ const { Content } = await render(about);
                     {role.bullets.map(b => (
                       <li>
                         <span class="bullet-name">{b.name}</span>: {b.detail}
-                        {b.venue && <span class="bullet-venue">{b.venue}</span>}
+                        {b.venues?.map(v => (
+                          <span class="bullet-venue">{v}</span>
+                        ))}
                       </li>
                     ))}
                   </ul>

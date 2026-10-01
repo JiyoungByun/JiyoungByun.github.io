@@ -8,8 +8,8 @@
 export interface Bullet {
   name: string;
   detail: string;
-  /** Venue or collaborator, set small after the detail. */
-  venue?: string;
+  /** Venue, award, or collaborator — each rendered as its own chip. */
+  venues?: string[];
 }
 
 export interface Role {
@@ -44,26 +44,26 @@ export const roles: Role[] = [
       {
         name: "Hallucination-Aware Calibration",
         detail:
-          "vision-grounded signals sharpen confidence in medical VQA, with the largest gains on open-ended questions.",
-        venue: "COLM 2026",
+          "Developed vision-grounded calibration for medical VLMs, improving uncertainty estimates and error discrimination on open-ended questions, with ECE reductions up to 0.38 pp and AUROC gains up to 7.3 pp.",
+        venues: ["COLM 2026"],
       },
       {
         name: "Test-Time Scaling",
         detail:
-          "up to 30.4 pp AUC across three diagnosis benchmarks, with analytical scaling laws.",
-        venue: "MIDL 2026",
+          "Investigated inference-time sampling for clinical reasoning without fine-tuning, demonstrating AUC gains up to 30.4 pp across three diagnosis benchmarks and deriving analytical scaling laws.",
+        venues: ["MIDL 2026"],
       },
       {
         name: "Adaptive Inference",
         detail:
-          "71.4% fewer FLOPs at 0.1 pp accuracy loss across five datasets.",
-        venue: "MIDL 2026",
+          "Developed adaptive token reduction and early exit for medical vision transformers, reducing FLOPs by 71.4% on average with only a 0.1 pp accuracy loss.",
+        venues: ["MIDL 2026"],
       },
       {
-        name: "Cataract Screening",
+        name: "Adaptation under Distribution Shift",
         detail:
-          "smartphone pipeline built with ophthalmologists at the Wilmer Eye Institute and Aravind Eye Hospital, reaching 91% accuracy in prospective deployment in rural India.",
-        venue: "NeurIPS 2024 AIM-FM Workshop",
+          "Developed cataract detection framework and led a comprehensive study of fine-tuning strategies under distribution shift and limited data; the resulting model achieved 91% accuracy in prospective deployment in rural India.",
+        venues: ["NeurIPS 2024 AIM-FM Workshop"],
       },
     ],
   },
@@ -72,18 +72,18 @@ export const roles: Role[] = [
     org: "Merck & Co.",
     dates: "Feb 2026 – Aug 2026",
     summary:
-      "Multi-agent AI for pharmaceutical toxicology hypothesis generation.",
+      "Multi-agent system for pharmaceutical toxicology hypothesis generation.",
     bullets: [
       {
         name: "Multi-Agent Hypothesis Generation",
         detail:
-          "end-to-end framework over enterprise multimodal databases for drug safety and mechanistic reasoning.",
+          "Built an end-to-end framework combining evidence retrieval, tool use, and iterative critique over proprietary multimodal data to generate mechanistic hypotheses for pharmaceutical toxicology.",
       },
       {
-        name: "Faithfulness Evaluation",
+        name: "Agent Evaluation & LLM-as-a-Judge",
         detail:
-          "quantifies hypothesis grounding without ground-truth labels, and compares agent architectures.",
-        venue: "NeurIPS 2026 AgenticLS Workshop",
+          "Used controlled reruns and perturbation tests to evaluate self-critique and audit LLM judges, showing that initial critique drives most hypothesis changes and evaluation criteria shape measured diversity.",
+        venues: ["NeurIPS 2026 AgenticLS Workshop"],
       },
     ],
   },
@@ -97,7 +97,7 @@ export const roles: Role[] = [
         name: "GNN for Alzheimer's",
         detail:
           "bipartite subject–demographic graph with APPNP over resting-state fMRI and demographic data.",
-        venue: "ASMRM & ICMRI 2020 (Best Poster Award)",
+        venues: ["ASMRM & ICMRI 2020", "Best Poster"],
       },
       {
         name: "KAIST–KT Collaboration",
