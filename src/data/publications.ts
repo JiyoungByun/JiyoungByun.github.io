@@ -66,6 +66,7 @@ export const publications: Publication[] = [
     venue: "MIDL 2026",
     year: 2026,
     status: "published",
+    image: "/pubs/tts.png",
     selected: true,
     links: [
       { label: "paper", url: "https://proceedings.mlr.press/v315/byun26a.html" },
