@@ -42,6 +42,7 @@ export const publications: Publication[] = [
     venue: "NeurIPS 2026 AgenticLS Workshop",
     year: 2026,
     status: "submitted",
+    image: "/pubs/agenticls.png",
   },
   {
     title:
@@ -97,6 +98,7 @@ export const publications: Publication[] = [
     authors: "Byun, J. Y., et al.",
     year: 2026,
     status: "in-preparation",
+    image: "/pubs/cataract.jpg",
   },
   {
     title:
