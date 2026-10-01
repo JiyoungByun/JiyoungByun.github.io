@@ -145,6 +145,7 @@ const selectedCount = items.filter(p => p.selected).length;
   }
 
   .pub-fig {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -240,6 +241,36 @@ const selectedCount = items.filter(p => p.selected).length;
   .pub-links a:hover {
     color: var(--accent);
     border-color: var(--accent);
+  }
+
+
+  @media (hover: hover) and (min-width: 860px) {
+    .pub-fig:has(img) {
+      overflow: visible;
+      cursor: zoom-in;
+    }
+    .pub-fig img {
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+    .pub-fig:hover {
+      z-index: 40;
+    }
+    .pub-fig:hover img {
+      transform: scale(2.3);
+      /* Grows rightward over the citation rather than off the left edge. */
+      transform-origin: left center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.25rem;
+      box-shadow: 0 12px 34px rgb(0 0 0 / 0.28);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pub-fig img {
+        transition: none;
+      }
+    }
   }
 
   @media (max-width: 640px) {
