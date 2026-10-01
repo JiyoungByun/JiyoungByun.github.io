@@ -37,61 +37,41 @@ const { Content } = await render(about);
       </div>
     </section>
 
-    <!-- Experience: collapsible rows, newest first -->
+    <!-- Experience: timeline rail with dots, newest first -->
     <section id="experience" class="border-border border-b pt-10 pb-8">
       <h2
         class="text-muted-foreground m-0 font-mono text-xs tracking-widest uppercase"
       >
         Experience
       </h2>
-      <ul class="mt-5 list-none space-y-1 p-0">
+      <ul class="timeline mt-6">
         {
           roles.map((role, i) => (
-            <li class="border-border border-b last:border-b-0">
-              <details class="group" open={i === 0}>
-                <summary class="marker:content-none flex cursor-pointer list-none items-baseline gap-3 py-3 [&::-webkit-details-marker]:hidden">
-                  <span
-                    class:list={[
-                      "mt-1.5 size-2 shrink-0 rounded-full",
-                      role.current
-                        ? "bg-accent"
-                        : "border-muted-foreground border",
-                    ]}
-                    aria-hidden="true"
-                  />
-                  <span class="min-w-0 flex-1">
-                    <span class="text-foreground font-semibold">
-                      {role.title}
+            <li class:list={["timeline-item", { current: role.current }]}>
+              <details open={i === 0}>
+                <summary class="timeline-head">
+                  <span class="timeline-title">
+                    <span class="timeline-role">{role.title}</span>
+                    <span class="timeline-sep" aria-hidden="true">
+                      ·
                     </span>
-                    <span class="text-muted-foreground"> · {role.org}</span>
+                    <span class="timeline-company">{role.org}</span>
                   </span>
-                  <span class="text-muted-foreground shrink-0 font-mono text-xs whitespace-nowrap max-sm:hidden">
-                    {role.dates}
-                  </span>
-                  <span
-                    class="text-muted-foreground shrink-0 transition-transform group-open:rotate-90 motion-reduce:transition-none"
-                    aria-hidden="true"
-                  >
+                  <span class="timeline-date">{role.dates}</span>
+                  <span class="timeline-chevron" aria-hidden="true">
                     &#9656;
                   </span>
                 </summary>
-                <div class="ps-5 pb-5">
-                  <p class="text-muted-foreground mt-0 mb-1 font-mono text-xs sm:hidden">
-                    {role.dates}
-                  </p>
-                  <p class="text-foreground mt-0 mb-3 text-sm italic">
-                    {role.summary}
-                  </p>
-                  <ul class="text-muted-foreground m-0 list-disc space-y-1.5 ps-4 text-sm">
+                <div class="timeline-body">
+                  <p class="timeline-summary">{role.summary}</p>
+                  <ul class="timeline-bullets">
                     {role.bullets.map(b => (
-                      <li class="leading-relaxed">{b}</li>
+                      <li>{b}</li>
                     ))}
                   </ul>
-                  <div class="mt-3 flex flex-wrap gap-1.5">
+                  <div class="timeline-tags">
                     {role.tags.map(tag => (
-                      <span class="text-muted-foreground border-border rounded border px-1.5 py-px font-mono text-[0.6875rem]">
-                        {tag}
-                      </span>
+                      <span>{tag}</span>
                     ))}
                   </div>
                 </div>
@@ -142,3 +122,160 @@ const { Content } = await render(about);
 
   <Footer />
 </Layout>
+
+<style>
+  /* Timeline rail: a 2px line behind the column of dots, inset at both ends so
+     it starts and stops level with the first and last dot. */
+  .timeline {
+    display: grid;
+    gap: 1.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    left: 7px;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 2rem;
+  }
+  /* Hollow ring by default; the page background masks the rail behind it. */
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 0.35rem;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--background);
+    border: 3px solid var(--accent);
+  }
+  /* The role still running gets a filled dot and a soft halo. */
+  .timeline-item.current::before {
+    background: var(--accent);
+    box-shadow: 0 0 0 5px var(--accent-glow);
+  }
+
+  .timeline-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 1rem;
+    cursor: pointer;
+    list-style: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .timeline-head::-webkit-details-marker {
+    display: none;
+  }
+  .timeline-title {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .timeline-role {
+    font-weight: 600;
+    color: var(--foreground);
+  }
+  .timeline-sep {
+    color: var(--muted-foreground);
+    margin: 0 0.3rem;
+  }
+  .timeline-company {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--muted-foreground);
+    white-space: nowrap;
+  }
+  .timeline-chevron {
+    flex-shrink: 0;
+    font-size: 0.85em;
+    color: var(--muted-foreground);
+    transition:
+      transform 0.2s,
+      color 0.2s;
+  }
+  details[open] .timeline-chevron {
+    color: var(--accent);
+    transform: rotate(90deg);
+  }
+  .timeline-head:hover .timeline-company {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .timeline-body {
+    padding-top: 0.7rem;
+    animation: timeline-fade 0.25s ease;
+  }
+  .timeline-summary {
+    margin: 0 0 0.75rem;
+    color: var(--foreground);
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+  /* Arrow bullets read faster than discs in a dense list. */
+  .timeline-bullets {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9rem;
+    color: var(--muted-foreground);
+  }
+  .timeline-bullets li {
+    position: relative;
+    padding-left: 1.35rem;
+    line-height: 1.6;
+  }
+  .timeline-bullets li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.9rem;
+  }
+  .timeline-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--muted-foreground);
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    padding: 1px 0.4rem;
+  }
+
+  @keyframes timeline-fade {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-body {
+      animation: none;
+    }
+    .timeline-chevron {
+      transition: none;
+    }
+  }
+</style>

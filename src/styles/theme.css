@@ -4,6 +4,7 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-accent: var(--accent);
+  --color-accent-glow: var(--accent-glow);
   --color-accent-foreground: var(--accent-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
@@ -21,6 +22,7 @@
   --foreground: #0e1a2b;
   --card: #ffffff;
   --accent: #1b5fa8;
+  --accent-glow: rgb(27 95 168 / 0.16);
   --accent-foreground: #ffffff;
   --muted: #e4eaf2;
   --muted-foreground: #53627a;
@@ -34,6 +36,7 @@
   --foreground: #e4eaf2;
   --card: #161e29;
   --accent: #62a9e5;
+  --accent-glow: rgb(98 169 229 / 0.2);
   --accent-foreground: #0b1017;
   --muted: #1e2733;
   --muted-foreground: #94a2b6;
