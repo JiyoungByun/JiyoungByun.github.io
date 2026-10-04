@@ -17,7 +17,7 @@ export default defineAstroPaperConfig({
       "Ph.D. candidate at Johns Hopkins University developing methods to make AI systems more capable and reliable for healthcare and scientific discovery — language models, vision-language models, and multi-agent systems.",
     author: "Ji Young Byun",
     profile: "https://scholar.google.com/citations?user=SvOu4fUAAAAJ",
-    ogImage: "default-og.jpg",
+    ogImage: "og-cover.jpg",
     lang: "en",
     timezone: "America/New_York",
     dir: "ltr",
