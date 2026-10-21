@@ -43,6 +43,9 @@ export const publications: Publication[] = [
     year: 2026,
     status: "submitted",
     image: "/pubs/agenticls.png",
+    links: [
+      { label: "arXiv", url: "https://arxiv.org/abs/2610.04133" },
+    ],
   },
   {
     title:
