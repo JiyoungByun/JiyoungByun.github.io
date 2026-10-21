@@ -41,7 +41,7 @@ export const publications: Publication[] = [
       "Byun, J. Y., Hu, A., Rogers, J., Wang, R., Kesapragada, M., & Shah, F.",
     venue: "NeurIPS 2026 AgenticLS Workshop",
     year: 2026,
-    status: "submitted",
+    status: "published",
     image: "/pubs/agenticls.png",
     links: [
       { label: "arXiv", url: "https://arxiv.org/abs/2610.04133" },
