@@ -39,7 +39,7 @@ export const publications: Publication[] = [
       "Auditing Pairwise Equivalence Judgments: Self-Critique Effects and Diversity Measurement in Multi-Agent Hypothesis Generation",
     authors:
       "Byun, J. Y., Hu, A., Rogers, J., Wang, R., Kesapragada, M., & Shah, F.",
-    venue: "NeurIPS 2026 AgenticLS Workshop",
+    venue: "NeurIPS AgenticLS Workshop (2026)",
     year: 2026,
     status: "published",
     image: "/pubs/agenticls.png",
@@ -51,7 +51,7 @@ export const publications: Publication[] = [
     title:
       "Overconfidence and Calibration in Medical VQA: Empirical Findings and Hallucination-Aware Mitigation",
     authors: "Byun, J. Y., Park, Y. J., Corbeil, J.-P., & Ben Abacha, A.",
-    venue: "COLM 2026",
+    venue: "Conference on Language Modeling (COLM; 2026)",
     year: 2026,
     status: "accepted",
     image: "/pubs/colm.svg",
@@ -66,7 +66,7 @@ export const publications: Publication[] = [
     title:
       "Test-Time Scaling in Clinical Decision Making: An Empirical and Analytical Investigation",
     authors: "Byun, J. Y., Park, Y. J., Azizan, N., & Chellappa, R.",
-    venue: "MIDL 2026",
+    venue: "Medical Imaging with Deep Learning (MIDL; 2026)",
     year: 2026,
     status: "published",
     image: "/pubs/tts.png",
@@ -80,7 +80,7 @@ export const publications: Publication[] = [
       "Adaptive Inference for Medical Vision Transformers: Token Reduction or Early Exit?",
     authors:
       "Byun, J. Y.*, Lee, H. S.*, Shuff, J. M., Venkatesh, R., Shekhawat, N. S., Parikh, K. S., & Chellappa, R.",
-    venue: "MIDL 2026",
+    venue: "Medical Imaging with Deep Learning (MIDL; 2026)",
     year: 2026,
     status: "published",
     image: "/pubs/adaptive.png",
@@ -109,7 +109,7 @@ export const publications: Publication[] = [
       "Precise Lens Status Classification via Projection Tuning for Efficient Adaptation to Data Shifts in Small Cataract Image Datasets",
     authors:
       "Byun, J. Y.*, Shuff, J. M.*, Munoz, R., Venkatesh, R., Shekhawat, N. S., Parikh, K. S., & Chellappa, R.",
-    venue: "NeurIPS 2024 AIM-FM Workshop",
+    venue: "NeurIPS AIM-FM Workshop (2024)",
     year: 2024,
     status: "published",
     image: "/pubs/proj.png",
@@ -122,7 +122,7 @@ export const publications: Publication[] = [
     title:
       "PAAN/MIF Nuclease Inhibition Prevents Neurodegeneration in Parkinson's Disease",
     authors: "Park, H., Kam, T. I., … Byun, J. Y., … & Dawson, V. L.",
-    venue: "Cell",
+    venue: "Cell (2022)",
     year: 2022,
     status: "published",
     image: "/pubs/cell.jpg",
@@ -138,7 +138,7 @@ export const publications: Publication[] = [
     title:
       "Graph Neural Network Based Heterogeneous Propagation Scheme for Classifying Alzheimer's Disease",
     authors: "Byun, J. Y., & Jeong, Y.",
-    venue: "bioRxiv",
+    venue: "ASMRM & ICMRI 2020 (Best Poster Award)",
     year: 2021,
     status: "published",
     image: "/pubs/appnp.png",
@@ -153,7 +153,7 @@ export const publications: Publication[] = [
     title:
       "Label-free Rapid Viable Enrichment of Circulating Tumor Cell by Photosensitive Polymer-based Microfilter",
     authors: "Kang, Y. T., Doh, I., Byun, J. Y., Chang, H. J., & Cho, Y. H.",
-    venue: "Theranostics",
+    venue: "Theranostics (2017)",
     year: 2017,
     status: "published",
     image: "/pubs/CTC.png",
