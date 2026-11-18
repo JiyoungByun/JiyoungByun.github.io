@@ -138,7 +138,7 @@ export const publications: Publication[] = [
     title:
       "Graph Neural Network Based Heterogeneous Propagation Scheme for Classifying Alzheimer's Disease",
     authors: "Byun, J. Y., & Jeong, Y.",
-    venue: "ASMRM & ICMRI 2020 (Best Poster Award)",
+    venue: "ASMRM & ICMRI (Best Poster Award; 2020)",
     year: 2021,
     status: "published",
     image: "/pubs/appnp.png",

@@ -45,19 +45,19 @@ export const roles: Role[] = [
         name: "Hallucination-Aware Calibration",
         detail:
           "Developed vision-grounded calibration for medical VLMs, improving uncertainty estimates and error discrimination on open-ended questions, with ECE reductions up to 0.38 pp and AUROC gains up to 7.3 pp.",
-        venues: ["COLM 2026"],
+        venues: ["Conference on Language Modeling (COLM), 2026"],
       },
       {
         name: "Test-Time Scaling",
         detail:
           "Investigated inference-time sampling for clinical reasoning without fine-tuning, demonstrating AUC gains up to 30.4 pp across three diagnosis benchmarks and deriving analytical scaling laws.",
-        venues: ["MIDL 2026"],
+        venues: ["Medical Imaging with Deep Learning (MIDL), 2026"],
       },
       {
         name: "Adaptive Inference",
         detail:
           "Developed adaptive token reduction and early exit for medical vision transformers, reducing FLOPs by 71.4% on average with only a 0.1 pp accuracy loss.",
-        venues: ["MIDL 2026"],
+        venues: ["Medical Imaging with Deep Learning (MIDL), 2026"],
       },
       {
         name: "Adaptation under Distribution Shift",

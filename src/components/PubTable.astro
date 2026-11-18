@@ -64,11 +64,7 @@ const selectedCount = items.filter(p => p.selected).length;
               )}
           </p>
           <p class="pub-venue">
-            {pub.venue ? (
-              <strong>{pub.venue}</strong>
-            ) : (
-              <span class="pub-year">{pub.year}</span>
-            )}
+            {pub.venue && <strong>{pub.venue}</strong>}
             {statusLabel[pub.status] && (
               <span class="pub-status">{statusLabel[pub.status]}</span>
             )}
@@ -211,9 +207,6 @@ const selectedCount = items.filter(p => p.selected).length;
   .pub-venue strong {
     color: var(--accent);
     font-weight: 500;
-  }
-  .pub-year {
-    color: var(--muted-foreground);
   }
   .pub-status {
     color: var(--muted-foreground);
