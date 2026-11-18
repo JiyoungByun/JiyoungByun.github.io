@@ -51,7 +51,7 @@ export const publications: Publication[] = [
     title:
       "Overconfidence and Calibration in Medical VQA: Empirical Findings and Hallucination-Aware Mitigation",
     authors: "Byun, J. Y., Park, Y. J., Corbeil, J.-P., & Ben Abacha, A.",
-    venue: "Conference on Language Modeling (COLM; 2026)",
+    venue: "Conference on Language Modeling (COLM), 2026",
     year: 2026,
     status: "accepted",
     image: "/pubs/colm.svg",
@@ -66,7 +66,7 @@ export const publications: Publication[] = [
     title:
       "Test-Time Scaling in Clinical Decision Making: An Empirical and Analytical Investigation",
     authors: "Byun, J. Y., Park, Y. J., Azizan, N., & Chellappa, R.",
-    venue: "Medical Imaging with Deep Learning (MIDL; 2026)",
+    venue: "Medical Imaging with Deep Learning (MIDL), 2026",
     year: 2026,
     status: "published",
     image: "/pubs/tts.png",
@@ -80,7 +80,7 @@ export const publications: Publication[] = [
       "Adaptive Inference for Medical Vision Transformers: Token Reduction or Early Exit?",
     authors:
       "Byun, J. Y.*, Lee, H. S.*, Shuff, J. M., Venkatesh, R., Shekhawat, N. S., Parikh, K. S., & Chellappa, R.",
-    venue: "Medical Imaging with Deep Learning (MIDL; 2026)",
+    venue: "Medical Imaging with Deep Learning (MIDL), 2026",
     year: 2026,
     status: "published",
     image: "/pubs/adaptive.png",
